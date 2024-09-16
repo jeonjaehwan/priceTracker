@@ -1,0 +1,23 @@
+spring:
+  profiles:
+    active: local
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/price_tracker?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: root
+    password: 6585qwer^
+jwt:
+  secret: 64461f01e1af406da538b9c48d801ce59142452199ff112fb5404c8e7e98e3ff
+  expiration: 3600
+  refreshExpiration: 86400
+
+ebay:
+  client-id: "jeonjaeh-PriceAle-PRD-0e1c6dfdd-487315a8"
+  client-secret: "PRD-e1c6dfdd6127-1f20-476e-a24b-8ce9"
