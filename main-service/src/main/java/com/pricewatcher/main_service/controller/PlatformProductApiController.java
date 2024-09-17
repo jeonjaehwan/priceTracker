@@ -1,7 +1,7 @@
 package com.pricewatcher.main_service.controller;
 
-import com.pricewatcher.main_service.dto.PlatformProductRes;
-import com.pricewatcher.main_service.service.EbayService;
+import com.pricewatcher.common_service.dto.PlatformProductRes;
+import com.pricewatcher.common_service.service.EbayService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;

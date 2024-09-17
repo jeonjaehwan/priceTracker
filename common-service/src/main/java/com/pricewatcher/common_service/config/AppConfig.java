@@ -1,4 +1,4 @@
-package com.pricewatcher.main_service.config;
+package com.pricewatcher.common_service.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

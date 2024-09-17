@@ -1,7 +1,7 @@
 package com.pricewatcher.main_service.entity;
 
+import com.pricewatcher.common_service.enums.Platform;
 import com.pricewatcher.main_service.dto.ProductReq;
-import com.pricewatcher.main_service.enums.Platform;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

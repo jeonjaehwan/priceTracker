@@ -1,7 +1,7 @@
 package com.pricewatcher.main_service.dto;
 
+import com.pricewatcher.common_service.enums.Platform;
 import com.pricewatcher.main_service.enums.Identifier;
-import com.pricewatcher.main_service.enums.Platform;
 import lombok.*;
 
 import java.math.BigDecimal;

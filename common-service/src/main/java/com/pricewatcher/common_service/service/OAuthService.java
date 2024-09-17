@@ -1,4 +1,4 @@
-package com.pricewatcher.main_service.service;
+package com.pricewatcher.common_service.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -37,7 +37,6 @@ public class OAuthService {
             headers.set("Authorization", "Basic " + encodedAuth);
             headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
 
-            // 요청 바디 설정
             MultiValueMap<String, String> body = new LinkedMultiValueMap<>();
             body.add("grant_type", "client_credentials");
             body.add("scope", "https://api.ebay.com/oauth/api_scope");

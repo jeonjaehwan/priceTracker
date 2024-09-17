@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common-service/price-tracker.common-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/common-service/price-tracker.common-service.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/main-service/price-tracker.main-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/main-service/price-tracker.main-service.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/price-tracker-service/price-tracker.price-tracker-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/price-tracker-service/price-tracker.price-tracker-service.main.iml" />
     </modules>
   </component>
 </project>

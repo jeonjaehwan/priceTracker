@@ -1,6 +1,6 @@
-package com.pricewatcher.main_service.dto;
+package com.pricewatcher.common_service.dto;
 
-import com.pricewatcher.main_service.enums.Platform;
+import com.pricewatcher.common_service.enums.Platform;
 import lombok.*;
 
 @Getter

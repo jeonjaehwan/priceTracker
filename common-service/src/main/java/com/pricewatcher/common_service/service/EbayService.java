@@ -1,8 +1,8 @@
-package com.pricewatcher.main_service.service;
+package com.pricewatcher.common_service.service;
 
-import com.pricewatcher.main_service.dto.EbaySearchRes;
-import com.pricewatcher.main_service.dto.PlatformProductRes;
-import com.pricewatcher.main_service.enums.Platform;
+import com.pricewatcher.common_service.dto.EbaySearchRes;
+import com.pricewatcher.common_service.dto.PlatformProductRes;
+import com.pricewatcher.common_service.enums.Platform;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.ParameterizedTypeReference;
@@ -27,6 +27,7 @@ public class EbayService {
     public List<PlatformProductRes> searchProductPrice(String productName) {
 
         String accessToken = oAuthService.getAccessToken();
+
         if (accessToken == null) {
             throw new IllegalStateException("Could not retrieve access token");
         }
