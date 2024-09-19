@@ -1,4 +1,4 @@
-package com.pricewatcher.main_service.dto;
+package com.pricewatcher.common_service.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

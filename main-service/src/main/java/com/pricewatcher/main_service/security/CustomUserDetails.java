@@ -1,6 +1,6 @@
 package com.pricewatcher.main_service.security;
 
-import com.pricewatcher.main_service.entity.User;
+import com.pricewatcher.common_service.entity.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

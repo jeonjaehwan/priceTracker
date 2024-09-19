@@ -1,6 +1,6 @@
 package com.pricewatcher.main_service.controller;
 
-import com.pricewatcher.main_service.dto.ProductReq;
+import com.pricewatcher.common_service.dto.ProductReq;
 import com.pricewatcher.main_service.security.CustomUserDetails;
 import com.pricewatcher.main_service.service.ProductService;
 import lombok.RequiredArgsConstructor;

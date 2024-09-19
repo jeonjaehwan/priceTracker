@@ -1,7 +1,7 @@
 package com.pricewatcher.main_service.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.pricewatcher.main_service.dto.LoginUserReq;
+import com.pricewatcher.common_service.dto.LoginUserReq;
 import com.pricewatcher.main_service.util.JwtUtil;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

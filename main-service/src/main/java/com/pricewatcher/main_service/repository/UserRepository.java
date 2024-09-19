@@ -1,6 +1,6 @@
 package com.pricewatcher.main_service.repository;
 
-import com.pricewatcher.main_service.entity.User;
+import com.pricewatcher.common_service.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

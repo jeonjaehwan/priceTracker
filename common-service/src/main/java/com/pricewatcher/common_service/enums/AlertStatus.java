@@ -1,4 +1,4 @@
-package com.pricewatcher.main_service.enums;
+package com.pricewatcher.common_service.enums;
 
 import lombok.Getter;
 

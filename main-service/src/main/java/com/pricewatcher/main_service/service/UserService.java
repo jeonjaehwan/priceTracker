@@ -1,8 +1,8 @@
 package com.pricewatcher.main_service.service;
 
-import com.pricewatcher.main_service.dto.UserReq;
-import com.pricewatcher.main_service.dto.UserRes;
-import com.pricewatcher.main_service.entity.User;
+import com.pricewatcher.common_service.dto.UserReq;
+import com.pricewatcher.common_service.dto.UserRes;
+import com.pricewatcher.common_service.entity.User;
 import com.pricewatcher.main_service.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

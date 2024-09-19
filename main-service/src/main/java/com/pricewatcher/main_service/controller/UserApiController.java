@@ -1,7 +1,7 @@
 package com.pricewatcher.main_service.controller;
 
-import com.pricewatcher.main_service.dto.UserReq;
-import com.pricewatcher.main_service.dto.UserRes;
+import com.pricewatcher.common_service.dto.UserReq;
+import com.pricewatcher.common_service.dto.UserRes;
 import com.pricewatcher.main_service.security.CustomUserDetails;
 import com.pricewatcher.main_service.security.CustomUserDetailsService;
 import com.pricewatcher.main_service.service.UserService;

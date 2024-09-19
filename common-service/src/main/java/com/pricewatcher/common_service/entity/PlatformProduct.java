@@ -1,7 +1,8 @@
-package com.pricewatcher.main_service.entity;
+package com.pricewatcher.common_service.entity;
 
+import com.pricewatcher.common_service.dto.ProductReq;
+import com.pricewatcher.common_service.enums.Identifier;
 import com.pricewatcher.common_service.enums.Platform;
-import com.pricewatcher.main_service.dto.ProductReq;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,8 +10,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Getter
@@ -20,7 +19,8 @@ import java.util.List;
 @Table(name = "platform_product")
 public class PlatformProduct extends BaseTimeEntity {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "platform_product_id")
     private Long id;
 
@@ -38,6 +38,13 @@ public class PlatformProduct extends BaseTimeEntity {
     @Column(name = "target_price", nullable = false)
     private BigDecimal targetPrice;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "identifier_type", nullable = false)
+    private Identifier identifierType;
+
+    @Column(name = "identifier_value", nullable = false)
+    private String identifierValue;
+
     public void setProduct(Product product) {
         this.product = product;
     }
@@ -48,6 +55,8 @@ public class PlatformProduct extends BaseTimeEntity {
                 .platformName(productReq.getPlatformName())
                 .imageUrl(productReq.getImageUrl())
                 .targetPrice(productReq.getTargetPrice())
+                .identifierType(productReq.getIdentifierType())
+                .identifierValue(productReq.getIdentifierValue())
                 .build();
     }
 

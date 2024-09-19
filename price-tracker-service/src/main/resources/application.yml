@@ -1,6 +1,23 @@
 spring:
   profiles:
     active: local
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/price_tracker?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: root
+    password: 6585qwer^
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 
 ebay:
   client-id: "jeonjaeh-PriceAle-PRD-0e1c6dfdd-487315a8"

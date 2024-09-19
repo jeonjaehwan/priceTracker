@@ -1,4 +1,4 @@
-package com.pricewatcher.main_service.entity;
+package com.pricewatcher.common_service.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;

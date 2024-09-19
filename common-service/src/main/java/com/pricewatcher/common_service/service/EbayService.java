@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
 
+import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -44,7 +45,6 @@ public class EbayService {
                 entity,
                 new ParameterizedTypeReference<>() {}
         );
-
         if (response.getStatusCode() == HttpStatus.OK && response.getBody() != null) {
             List<PlatformProductRes> items = response.getBody().getItemSummaries();
 
@@ -53,7 +53,38 @@ public class EbayService {
                     .collect(Collectors.toList());
 
         }
-
         return Collections.emptyList();
     }
+
+    public BigDecimal getPrice(String identifierValue) {
+        String accessToken = oAuthService.getAccessToken();
+
+        if (accessToken == null) {
+            throw new IllegalStateException("Could not retrieve access token");
+        }
+
+        String url = "https://api.ebay.com/buy/browse/v1/item/" + identifierValue;
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", "Bearer " + accessToken);
+        HttpEntity<String> entity = new HttpEntity<>(headers);
+
+        ResponseEntity<PlatformProductRes> response = restTemplate.exchange(
+                url,
+                HttpMethod.GET,
+                entity,
+                new ParameterizedTypeReference<>() {}
+        );
+
+        if (response.getStatusCode() == HttpStatus.OK && response.getBody() != null) {
+            PlatformProductRes product = response.getBody();
+
+            if (product.getPrice() != null) {
+                return product.getPrice().getValue();  // BigDecimal 값을 반환
+            }
+        }
+
+        return BigDecimal.ZERO;  // 가격 정보가 없을 경우 0 반환
+    }
+
 }

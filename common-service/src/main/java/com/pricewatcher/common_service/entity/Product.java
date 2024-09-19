@@ -1,7 +1,6 @@
-package com.pricewatcher.main_service.entity;
+package com.pricewatcher.common_service.entity;
 
-import com.pricewatcher.main_service.dto.ProductReq;
-import com.pricewatcher.main_service.enums.Identifier;
+import com.pricewatcher.common_service.dto.ProductReq;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,7 +20,8 @@ import java.util.List;
 @Table(name = "product")
 public class Product extends BaseTimeEntity{
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "product_id")
     private Long id;
 
@@ -36,13 +36,6 @@ public class Product extends BaseTimeEntity{
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "identifier_type", nullable = false)
-    private Identifier identifierType;
-
-    @Column(name = "identifier_value", nullable = false)
-    private String identifierValue;
-
     public void addPlatformProduct(PlatformProduct platformProduct) {
         this.platformProducts.add(platformProduct);
         platformProduct.setProduct(this);
@@ -52,8 +45,6 @@ public class Product extends BaseTimeEntity{
         Product product = Product.builder()
                 .user(user)
                 .name(productReq.getProductName())
-                .identifierType(productReq.getIdentifierType())
-                .identifierValue(productReq.getIdentifierValue())
                 .build();
         PlatformProduct platformProduct = PlatformProduct.from(product, productReq);
         product.addPlatformProduct(platformProduct);

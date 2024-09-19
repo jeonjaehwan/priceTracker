@@ -1,7 +1,7 @@
-package com.pricewatcher.main_service.entity;
+package com.pricewatcher.common_service.entity;
 
-import com.pricewatcher.main_service.dto.UserReq;
-import com.pricewatcher.main_service.enums.Role;
+import com.pricewatcher.common_service.dto.UserReq;
+import com.pricewatcher.common_service.enums.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,7 +19,8 @@ import java.util.List;
 @Table(name = "user")
 public class User extends BaseTimeEntity {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Long id;
 
