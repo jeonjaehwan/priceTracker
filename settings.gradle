@@ -1,2 +1,2 @@
 rootProject.name = 'price-tracker'
-include 'common-service', 'main-service', 'price-tracker-service'
+include 'common-service', 'main-service', 'price-tracker-service', 'price-storage-service'

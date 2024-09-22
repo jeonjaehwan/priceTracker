@@ -84,7 +84,7 @@ public class EbayService {
             }
         }
 
-        return BigDecimal.ZERO;  // 가격 정보가 없을 경우 0 반환
+        return BigDecimal.ZERO;
     }
 
 }

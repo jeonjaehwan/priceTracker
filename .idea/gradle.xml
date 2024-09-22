@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/common-service" />
             <option value="$PROJECT_DIR$/main-service" />
+            <option value="$PROJECT_DIR$/price-storage-service" />
             <option value="$PROJECT_DIR$/price-tracker-service" />
           </set>
         </option>

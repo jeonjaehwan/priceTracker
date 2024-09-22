@@ -18,12 +18,15 @@ spring:
       - 54.172.163.13:9092
       - 18.233.82.55:9092
       - 100.24.176.111:9092
-    producer:
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
-ebay:
-  client-id: "jeonjaeh-PriceAle-PRD-0e1c6dfdd-487315a8"
-  client-secret: "PRD-e1c6dfdd6127-1f20-476e-a24b-8ce9"
-
+    consumer:
+      group-id: price-storage-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "*"
+      auto-offset-reset: earliest
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/pricewatcher
 server:
-  port: 8081
+  port: 8082
