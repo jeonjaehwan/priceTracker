@@ -1,4 +1,4 @@
-package com.pricewatcher.main_service.exception;
+package com.pricewatcher.common_service.exception;
 
 public class UserNotFoundException extends RuntimeException {
 

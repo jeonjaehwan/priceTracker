@@ -1,7 +1,6 @@
 package com.pricewatcher.common_service.dto;
 
-import com.pricewatcher.common_service.entity.PlatformProduct;
-import com.pricewatcher.common_service.enums.Platform;
+import com.pricewatcher.common_service.entity.Product;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -18,7 +17,7 @@ public class PriceMessageReq {
     private BigDecimal price;
     private LocalDateTime trackedDate;
 
-    public static PriceMessageReq from(PlatformProduct product, BigDecimal price) {
+    public static PriceMessageReq from(Product product, BigDecimal price) {
         return PriceMessageReq.builder()
                 .identifierValue(product.getIdentifierValue())
                 .price(price)

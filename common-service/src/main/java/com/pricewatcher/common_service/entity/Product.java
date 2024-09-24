@@ -1,53 +1,63 @@
 package com.pricewatcher.common_service.entity;
 
 import com.pricewatcher.common_service.dto.ProductReq;
+import com.pricewatcher.common_service.enums.Identifier;
+import com.pricewatcher.common_service.enums.Platform;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.math.BigDecimal;
 
 @Entity
 @Getter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-@Slf4j
-@Table(name = "product")
-public class Product extends BaseTimeEntity{
+@Table(name = "platform_product")
+public class Product extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "product_id")
+    @Column(name = "platform_product_id")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 
-    @Builder.Default
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<PlatformProduct> platformProducts = new ArrayList<>();
+    @Column(name = "product_name")
+    private String productName;
 
-    @Column(name = "name", nullable = false)
-    private String name;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "platform_name", nullable = false)
+    private Platform platformName;
 
-    public void addPlatformProduct(PlatformProduct platformProduct) {
-        this.platformProducts.add(platformProduct);
-        platformProduct.setProduct(this);
-    }
+    @Column(name = "image_url", nullable = false)
+    private String imageUrl;
+
+    @Column(name = "target_price", nullable = false)
+    private BigDecimal targetPrice;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "identifier_type", nullable = false)
+    private Identifier identifierType;
+
+    @Column(name = "identifier_value", nullable = false)
+    private String identifierValue;
 
     public static Product from(User user, ProductReq productReq) {
-        Product product = Product.builder()
+        return Product.builder()
                 .user(user)
-                .name(productReq.getProductName())
+                .productName(productReq.getProductName())
+                .platformName(productReq.getPlatformName())
+                .imageUrl(productReq.getImageUrl())
+                .targetPrice(productReq.getTargetPrice())
+                .identifierType(productReq.getIdentifierType())
+                .identifierValue(productReq.getIdentifierValue())
                 .build();
-        PlatformProduct platformProduct = PlatformProduct.from(product, productReq);
-        product.addPlatformProduct(platformProduct);
-        return product;
     }
+
 }

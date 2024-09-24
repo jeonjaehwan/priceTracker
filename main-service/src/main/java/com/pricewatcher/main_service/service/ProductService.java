@@ -3,7 +3,7 @@ package com.pricewatcher.main_service.service;
 import com.pricewatcher.common_service.dto.ProductReq;
 import com.pricewatcher.common_service.entity.Product;
 import com.pricewatcher.common_service.entity.User;
-import com.pricewatcher.main_service.exception.UserNotFoundException;
+import com.pricewatcher.common_service.exception.UserNotFoundException;
 import com.pricewatcher.main_service.repository.ProductRepository;
 import com.pricewatcher.main_service.repository.UserRepository;
 import lombok.RequiredArgsConstructor;

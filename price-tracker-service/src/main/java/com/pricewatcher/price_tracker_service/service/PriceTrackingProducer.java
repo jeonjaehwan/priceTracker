@@ -1,6 +1,6 @@
 package com.pricewatcher.price_tracker_service.service;
 
-import com.pricewatcher.common_service.entity.PlatformProduct;
+import com.pricewatcher.common_service.entity.Product;
 import com.pricewatcher.common_service.dto.PriceMessageReq;
 import lombok.RequiredArgsConstructor;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -14,7 +14,7 @@ public class PriceTrackingProducer {
 
     private final KafkaTemplate<String, PriceMessageReq> kafkaTemplate;
 
-    public void sendPriceMessage(PlatformProduct product, BigDecimal price) {
+    public void sendPriceMessage(Product product, BigDecimal price) {
         kafkaTemplate.send("price-tracking-topic", PriceMessageReq.from(product, price));
     }
 }

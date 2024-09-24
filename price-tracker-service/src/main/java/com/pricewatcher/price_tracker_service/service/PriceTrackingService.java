@@ -1,5 +1,6 @@
 package com.pricewatcher.price_tracker_service.service;
 
+import com.pricewatcher.common_service.entity.User;
 import com.pricewatcher.common_service.enums.Platform;
 import com.pricewatcher.common_service.service.EbayService;
 import com.pricewatcher.common_service.dto.AlertMessageReq;
@@ -34,7 +35,8 @@ public class PriceTrackingService {
                         kafkaProducer.sendPriceMessage(product, price);
                         log.info("product {}: {}", product.getId(), price);
                         if (price.compareTo(product.getTargetPrice()) <= 0) {
-                            AlertMessageReq alertMessage = AlertMessageReq.from(product.getId(), product.getProduct().getName(), product.getTargetPrice(), price);
+                            User user = product.getUser();
+                            AlertMessageReq alertMessage = AlertMessageReq.from(product.getId(), product.getProductName(), product.getTargetPrice(), price, user.getId());
                             priceAlertProducer.sendAlertMessage(alertMessage);
                             log.info("Sent alert for product {}: Target Price {}, Current Price {}", product.getId(), product.getTargetPrice(), price);
                         }

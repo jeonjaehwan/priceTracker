@@ -12,5 +12,5 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class EbaySearchRes {
-    private List<PlatformProductRes> itemSummaries;
+    private List<ProductRes> itemSummaries;
 }

@@ -8,7 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class PlatformProductRes {
+public class ProductRes {
 
     private String title;
     private ImageRes image;
