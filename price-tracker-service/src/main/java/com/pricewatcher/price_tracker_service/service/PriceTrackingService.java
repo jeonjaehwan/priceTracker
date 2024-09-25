@@ -21,19 +21,18 @@ public class PriceTrackingService {
 
     private final PlatformProductRepository platformProductRepository;
     private final EbayService ebayService;
-    private final PriceTrackingProducer kafkaProducer;
+    private final PriceTrackingProducer priceTrackingProducer;
     private final PriceAlertProducer priceAlertProducer;
 
     @Transactional
-    @Scheduled(fixedRate = 60000)
     public void trackProductPrices() {
         platformProductRepository.findAll().stream()
                 .filter(product -> product.getPlatformName() == Platform.EBAY)
                 .forEach(product -> {
                     try {
                         BigDecimal price = ebayService.getPrice(product.getIdentifierValue());
-                        kafkaProducer.sendPriceMessage(product, price);
-                        log.info("product {}: {}", product.getId(), price);
+                        priceTrackingProducer.sendPriceMessage(product, price);
+                        log.info("product {}: Current Price {}, Target Price {}", product.getProductName(), price, product.getTargetPrice());
                         if (price.compareTo(product.getTargetPrice()) <= 0) {
                             User user = product.getUser();
                             AlertMessageReq alertMessage = AlertMessageReq.from(product.getId(), product.getProductName(), product.getTargetPrice(), price, user.getId());

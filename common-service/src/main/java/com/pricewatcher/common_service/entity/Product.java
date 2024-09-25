@@ -16,12 +16,12 @@ import java.math.BigDecimal;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "platform_product")
+@Table(name = "product")
 public class Product extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "platform_product_id")
+    @Column(name = "product_id")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)

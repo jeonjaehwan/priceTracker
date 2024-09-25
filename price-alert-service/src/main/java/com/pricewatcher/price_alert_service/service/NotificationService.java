@@ -21,7 +21,7 @@ public class NotificationService {
             smsUtil.sendOne(phoneNumber, productName, targetPrice, currentPrice);
             log.info("Price drop notification sent to {} for product {} with current price {}", phoneNumber, productName, currentPrice);
         } catch (Exception e) {
-            log.error("Failed to send notification to {}: {}", phoneNumber, e.getMessage());
+            log.error("ㅇㅇ notification to {}: {}", phoneNumber, e.getMessage());
         }
     }
 }

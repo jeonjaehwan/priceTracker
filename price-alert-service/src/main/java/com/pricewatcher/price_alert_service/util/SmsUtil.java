@@ -1,6 +1,7 @@
 package com.pricewatcher.price_alert_service.util;
 
 import jakarta.annotation.PostConstruct;
+import lombok.extern.slf4j.Slf4j;
 import net.nurigo.sdk.NurigoApp;
 import net.nurigo.sdk.message.model.Message;
 import net.nurigo.sdk.message.request.SingleMessageSendingRequest;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Component;
 import java.math.BigDecimal;
 
 @Component
+@Slf4j
 public class SmsUtil {
 
     @Value("${coolsms.api.key}")
@@ -31,7 +33,6 @@ public class SmsUtil {
         message.setFrom("01077696585");
         message.setTo(to);
         message.setText("가격 알림: " + productName + "가 목표 가격인 " + targetPrice + "원 이하로 내려갔습니다! 현재 가격: " + currentPrice + "원입니다. 지금 확인해 보세요.");
-
         return messageService.sendOne(new SingleMessageSendingRequest(message));
     }
 

@@ -19,11 +19,12 @@ spring:
       - 18.233.82.55:9092
       - 100.24.176.111:9092
     consumer:
-      group-id: price-storage-group
+      group-id: price-alert-group
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
         spring.json.trusted.packages: "*"
+      enable-auto-commit: true
       auto-offset-reset: earliest
   data:
     mongodb:
@@ -32,7 +33,7 @@ spring:
 coolsms:
   api:
     key: NCSNE0EKVTZAUCCY
-    secret: V1SHVAWC0NI4DN9YE1LP3FTN12WSBHG
+    secret: V1SHVAWC0NI4DN9YE1LP3FTN12WSBHG6
 
 ebay:
   client-id: "jeonjaeh-PriceAle-PRD-0e1c6dfdd-487315a8"
