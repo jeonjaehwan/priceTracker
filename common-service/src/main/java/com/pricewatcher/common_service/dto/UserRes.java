@@ -10,6 +10,8 @@ import lombok.*;
 @AllArgsConstructor
 public class UserRes {
 
+    private Long userId;
+
     private String name;
 
     private String username;
@@ -22,6 +24,7 @@ public class UserRes {
 
     public static UserRes from(User user) {
         return UserRes.builder()
+                .userId(user.getId())
                 .name(user.getName())
                 .username(user.getUsername())
                 .password(user.getPassword())

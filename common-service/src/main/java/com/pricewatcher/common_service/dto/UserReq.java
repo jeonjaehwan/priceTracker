@@ -1,5 +1,7 @@
 package com.pricewatcher.common_service.dto;
 
+import com.pricewatcher.common_service.entity.User;
+import com.pricewatcher.common_service.enums.Role;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
@@ -30,4 +32,17 @@ public class UserReq {
     @NotBlank(message = "휴대폰 번호는 필수 입력 값입니다.")
     @Pattern(regexp = "^01(?:0|1|[6-9])[0-9]{7,8}$", message = "올바른 휴대폰 번호 형식이 아닙니다.")
     private String phoneNumber;
+
+    private Role role;
+
+    public static UserReq from(OAuthReq oAuthReq) {
+        return UserReq.builder()
+                .name(oAuthReq.getUsername())
+                .username(oAuthReq.getId())
+                .email(oAuthReq.getEmail())
+                .phoneNumber(oAuthReq.getPhoneNumber())
+                .role(Role.SOCIAL)
+                .password("")
+                .build();
+    }
 }

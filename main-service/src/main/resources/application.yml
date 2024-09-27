@@ -21,6 +21,9 @@ jwt:
 ebay:
   client-id: "jeonjaeh-PriceAle-PRD-0e1c6dfdd-487315a8"
   client-secret: "PRD-e1c6dfdd6127-1f20-476e-a24b-8ce9"
-
+coolsms:
+  api:
+    key: NCSNE0EKVTZAUCCY
+    secret: V1SHVAWC0NI4DN9YE1LP3FTN12WSBHG6
 server:
   port: 8080

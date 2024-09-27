@@ -46,6 +46,10 @@ public class User extends BaseTimeEntity {
     @Column(name = "role", nullable = false)
     private Role role;
 
+    public void updatePassword(String password) {
+        this.password = password;
+    }
+
     public static User from(UserReq userReq) {
         return User.builder()
                 .name(userReq.getName())
