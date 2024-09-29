@@ -14,16 +14,12 @@ public class JwtRes {
     private String accessToken;
     private String refreshToken;
     private String username;
-    private Long expiresIn;
-    private Long refreshExpiresIn;
 
-    public static JwtRes from(String accessToken, String refreshToken, String username, Long expiresIn, Long refreshExpiresIn) {
+    public static JwtRes from(String accessToken, String refreshToken, String username) {
         return JwtRes.builder()
                 .accessToken(accessToken)
                 .refreshToken(refreshToken)
                 .username(username)
-                .expiresIn(expiresIn)
-                .refreshExpiresIn(refreshExpiresIn)
                 .build();
 
     }

@@ -18,7 +18,7 @@ public class NotificationService {
 
     public void sendPriceDropNotification(String phoneNumber, String productName, BigDecimal targetPrice, BigDecimal currentPrice) {
         try {
-            smsUtil.sendOne(phoneNumber, productName, targetPrice, currentPrice);
+//            smsUtil.sendOne(phoneNumber, productName, targetPrice, currentPrice);
             log.info("Price drop notification sent to {} for product {} with current price {}", phoneNumber, productName, currentPrice);
         } catch (Exception e) {
             log.error("notification to {}: {}", phoneNumber, e.getMessage());

@@ -139,7 +139,7 @@ public class UserApiController {
     /**
      * 구글 소셜 로그인
      */
-    @PostMapping("/social-login")
+    @PostMapping("/google-login")
     public ResponseEntity<?> loginWithSocial(@RequestBody OAuthReq oAuthReq) {
         return handleSocialLogin(oAuthReq);
     }
@@ -183,7 +183,7 @@ public class UserApiController {
         String accessToken = jwtUtil.generateToken(userDetails);
         String refreshToken = jwtUtil.generateRefreshToken(username);
 
-        JwtRes jwtResponse = JwtRes.from(accessToken, refreshToken, username, jwtUtil.getExpiration(), jwtUtil.getRefreshExpiration());
+        JwtRes jwtResponse = JwtRes.from(accessToken, refreshToken, username);
         return ResponseEntity.ok(jwtResponse);
     }
 }
