@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: price-tracker-service-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: price-tracker-service
+  template:
+    metadata:
+      labels:
+        app: price-tracker-service
+    spec:
+      containers:
+        - name: price-tracker-service
+          image: wjswoghks/price-tracker-service:1.0
+          ports:
+            - containerPort: 8081
+          resources:
+            requests:
+              memory: "1024Mi"
+              cpu: "750m"
+            limits:
+              memory: "2048Mi"
+              cpu: "1500m"

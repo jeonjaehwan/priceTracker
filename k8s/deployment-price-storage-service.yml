@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: price-storage-service-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: price-storage-service
+  template:
+    metadata:
+      labels:
+        app: price-storage-service
+    spec:
+      containers:
+        - name: price-storage-service
+          image: wjswoghks/price-storage-service:1.0
+          ports:
+            - containerPort: 8083
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "500m"
+            limits:
+              memory: "1024Mi"
+              cpu: "1000m"

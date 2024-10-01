@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: price-alert-service-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: price-alert-service
+  template:
+    metadata:
+      labels:
+        app: price-alert-service
+    spec:
+      containers:
+        - name: price-alert-service
+          image: wjswoghks/price-alert-service:1.0
+          ports:
+            - containerPort: 8082
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "500m"
+            limits:
+              memory: "1024Mi"
+              cpu: "1000m"

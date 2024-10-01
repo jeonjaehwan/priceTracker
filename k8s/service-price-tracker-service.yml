@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: price-tracker-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: price-tracker-service
+  ports:
+    - protocol: TCP
+      port: 8081
+      targetPort: 8081
