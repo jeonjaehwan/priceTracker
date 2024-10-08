@@ -137,9 +137,9 @@ public class UserApiController {
     }
 
     /**
-     * 구글 소셜 로그인
+     * 네이버 소셜 로그인
      */
-    @PostMapping("/google-login")
+    @PostMapping("/naver-login")
     public ResponseEntity<?> loginWithSocial(@RequestBody OAuthReq oAuthReq) {
         return handleSocialLogin(oAuthReq);
     }
